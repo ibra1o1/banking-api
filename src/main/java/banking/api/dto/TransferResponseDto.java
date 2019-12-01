@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransferResponseDto {
-  private String message;
-  @JsonProperty("current-balance")
-  private String currentBalance;
-  @JsonProperty("timestamp")
-  private String dateAndTime;
+	private String message;
+	@JsonProperty("current-balance")
+	private String currentBalance;
+	@JsonProperty("timestamp")
+	private String dateAndTime;
 }

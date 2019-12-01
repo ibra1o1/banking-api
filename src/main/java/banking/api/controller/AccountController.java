@@ -1,4 +1,4 @@
-package banking;
+package banking.api.controller;
 
 import banking.api.dto.AccountDto;
 import banking.api.service.AccountService;
@@ -16,23 +16,23 @@ import java.util.List;
 @Controller("/accounts")
 public class AccountController {
 
-  @Inject
-  private AccountService service;
+	@Inject
+	private AccountService service;
 
-  @Post("/create")
-  public AccountDto create(final AccountDto accountDto) {
-    return service.saveAccount(accountDto);
-  }
+	@Post("/create")
+	public AccountDto create(final AccountDto accountDto) {
+		return service.saveAccount(accountDto);
+	}
 
-  @Get("/list")
-  public List<AccountDto> getAll() {
-    return service.findAll();
-  }
+	@Get("/list")
+	public List<AccountDto> getAll() {
+		return service.findAll();
+	}
 
-  @Get("/{accountNumber}")
-  public AccountDto getByAccountNumber(@RequestAttribute String accountNumber) {
-    return service.findBy(accountNumber);
-  }
+	@Get("/{accountNumber}")
+	public AccountDto getByAccountNumber(@RequestAttribute String accountNumber) {
+		return service.findBy(accountNumber);
+	}
 
 
 }

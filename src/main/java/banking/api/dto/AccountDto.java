@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountDto {
-  @JsonProperty("account_holder")
-  private String accountHolder;
-  @JsonProperty("account_number")
-  private String accountNumber;
-  @JsonProperty("currency_and_balance")
-  private String currencyAndBalance; // e.g "EUR 28.15"
+	@JsonProperty("account_holder")
+	private String accountHolder;
+	@JsonProperty("account_number")
+	private String accountNumber;
+	@JsonProperty("currency_and_balance")
+	private String currencyAndBalance; // e.g "EUR 28.15"
 }

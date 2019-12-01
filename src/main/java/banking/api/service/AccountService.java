@@ -13,26 +13,26 @@ import java.util.stream.Collectors;
 @Singleton
 public class AccountService {
 
-  @Inject
-  private AccountRepository repository;
+	@Inject
+	private AccountRepository repository;
 
-  private static AccountDto convert(final Account account) {
-    return new AccountDto(account.getAccountHolder(), account.getAccountNumber(), account.getMoney().toString());
-  }
+	private static AccountDto convert(final Account account) {
+		return new AccountDto(account.getAccountHolder(), account.getAccountNumber(), account.getMoney().toString());
+	}
 
-  public AccountDto saveAccount(final AccountDto accountDto) {
-    final Account account = repository.save(new Account(accountDto));
-    return convert(account);
-  }
+	public AccountDto saveAccount(final AccountDto accountDto) {
+		final Account account = repository.save(new Account(accountDto));
+		return convert(account);
+	}
 
-  public AccountDto findBy(final String accountNumber) {
-    final Account account = repository.findBy(accountNumber);
-    return Objects.isNull(account) ? null : convert(account);
-  }
+	public AccountDto findBy(final String accountNumber) {
+		final Account account = repository.findBy(accountNumber);
+		return Objects.isNull(account) ? null : convert(account);
+	}
 
-  public List<AccountDto> findAll() {
-    return repository.findAll().stream().map(AccountService::convert).collect(Collectors.toList());
-  }
+	public List<AccountDto> findAll() {
+		return repository.findAll().stream().map(AccountService::convert).collect(Collectors.toList());
+	}
 
 
 }

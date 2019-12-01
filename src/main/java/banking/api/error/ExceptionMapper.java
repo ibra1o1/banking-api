@@ -11,31 +11,31 @@ import io.micronaut.http.hateoas.Link;
 @Controller
 public class ExceptionMapper {
 
-  @Error(global = true)
-  public HttpResponse<JsonError> internalError(HttpRequest request, TransactionException e) {
-    JsonError error = new JsonError(e.getMessage())
-            .link(Link.SELF, Link.of(request.getUri()));
+	@Error(global = true)
+	public HttpResponse<JsonError> internalError(HttpRequest request, TransactionException e) {
+		JsonError error = new JsonError(e.getMessage())
+						.link(Link.SELF, Link.of(request.getUri()));
 
-    return HttpResponse.<JsonError>status(HttpStatus.INTERNAL_SERVER_ERROR)
-            .body(error);
-  }
+		return HttpResponse.<JsonError>status(HttpStatus.INTERNAL_SERVER_ERROR)
+						.body(error);
+	}
 
-  @Error(global = true)
-  public HttpResponse<JsonError> accountError(HttpRequest request, AccountNotFoundException e) {
-    JsonError error = new JsonError(e.getMessage())
-            .link(Link.SELF, Link.of(request.getUri()));
+	@Error(global = true)
+	public HttpResponse<JsonError> accountError(HttpRequest request, AccountNotFoundException e) {
+		JsonError error = new JsonError(e.getMessage())
+						.link(Link.SELF, Link.of(request.getUri()));
 
-    return HttpResponse.<JsonError>status(HttpStatus.NOT_FOUND)
-            .body(error);
-  }
+		return HttpResponse.<JsonError>status(HttpStatus.NOT_FOUND)
+						.body(error);
+	}
 
-  @Error(global = true)
-  public HttpResponse<JsonError> fundError(HttpRequest request, InsufficientFundException e) {
-    JsonError error = new JsonError(e.getMessage())
-            .link(Link.SELF, Link.of(request.getUri()));
+	@Error(global = true)
+	public HttpResponse<JsonError> fundError(HttpRequest request, InsufficientFundException e) {
+		JsonError error = new JsonError(e.getMessage())
+						.link(Link.SELF, Link.of(request.getUri()));
 
-    return HttpResponse.<JsonError>status(HttpStatus.BAD_REQUEST)
-            .body(error);
-  }
+		return HttpResponse.<JsonError>status(HttpStatus.BAD_REQUEST)
+						.body(error);
+	}
 
 }

@@ -12,25 +12,25 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Singleton
 public class AccountRepository {
-  private final Map<String, Account> accountStorage = new ConcurrentHashMap<>();
+	private final Map<String, Account> accountStorage = new ConcurrentHashMap<>();
 
-  public Account save(final Account account) {
-    accountStorage.put(account.getAccountNumber(), account);
-    return findBy(account.getAccountNumber());
-  }
+	public Account save(final Account account) {
+		accountStorage.put(account.getAccountNumber(), account);
+		return findBy(account.getAccountNumber());
+	}
 
-  public Account findBy(final String accountNumber) {
-    return accountStorage.get(accountNumber);
-  }
+	public Account findBy(final String accountNumber) {
+		return accountStorage.get(accountNumber);
+	}
 
-  public List<Account> findAll() {
-    return new ArrayList<>(accountStorage.values());
-  }
+	public List<Account> findAll() {
+		return new ArrayList<>(accountStorage.values());
+	}
 
-  public void updateBalance(final Account account, final Money money) {
-    if (!account.getCurrencyUnit().equals(money.getCurrencyUnit())) {
-      throw new IncompatibleCurrency();
-    }
-    account.setMoney(money);
-  }
+	public void updateBalance(final Account account, final Money money) {
+		if (!account.getCurrencyUnit().equals(money.getCurrencyUnit())) {
+			throw new IncompatibleCurrency();
+		}
+		account.setMoney(money);
+	}
 }

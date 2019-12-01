@@ -5,15 +5,21 @@ Money Transfer API.
 ## Requirements 
 Install [Docker](https://docs.docker.com/v17.09/engine/installation/)
 
+## Stack 
+* Java11
+* Micronaut
+* Docker
+* Gradle
+
 ## Usage
 
-#### Run
-Use make build, test and run the project.
+* #### Run
+Use make to build, test and run the project.
 
 ```bash
 make run
 ```
-#### Create two Accounts
+* #### Create two Accounts
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -21,7 +27,7 @@ curl --header "Content-Type: application/json" \
   --data '{"account_holder": "Ibra","currency_and_balance": "EUR 20.5"}' \
   localhost:8080/accounts/create
 ```
-#### List the accounts you created 
+* #### List the accounts you created 
 ```bash
 curl localhost:8080/accounts/list
 ```
@@ -41,7 +47,7 @@ This will return a response like the following.
 ]
 ```
 
-#### Transfer Money
+* #### Transfer Money
 Using the accounts number you get previously form the following command.
 
 ```bash
@@ -58,4 +64,19 @@ you're done, you'll get response similar to.
   "current-balance":"EUR 9999997.50",
   "timestamp":"2019-12-01T21:46:47.630202177"
 }
+```
+
+#### Project structure. ####
+* The packages are structured based on the context\module . e.g the `api` package has all the api related subpackages like `dto` and `controller` and so on. 
+```$xslt
+|banking|
+        |api|
+            |controller|
+            |dto|
+            |error|
+            |service|
+        |data|
+            |error|
+            |model|
+            |repository|
 ```

@@ -1,4 +1,4 @@
-package banking;
+package banking.api.controller;
 
 import banking.api.dto.TransferDto;
 import banking.api.dto.TransferResponseDto;
@@ -11,11 +11,11 @@ import javax.inject.Inject;
 @Controller("/payments")
 public class PaymentController {
 
-  @Inject
-  private PaymentService service;
+	@Inject
+	private PaymentService service;
 
-  @Post("/send")
-  public TransferResponseDto sendMoney(final TransferDto transferDto) {
-    return service.sendMoney(transferDto);
-  }
+	@Post("/send")
+	public TransferResponseDto sendMoney(final TransferDto transferDto) {
+		return service.sendMoney(transferDto);
+	}
 }

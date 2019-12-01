@@ -5,7 +5,6 @@ plugins {
 }
 
 
-
 version "0.1"
 group "banking"
 
@@ -16,7 +15,7 @@ repositories {
 
 configurations {
     // for dependencies that are needed for development only
-    developmentOnly 
+    developmentOnly
 }
 
 dependencies {
@@ -38,7 +37,7 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
-    implementation  'org.joda:joda-money:1.0.1'
+    implementation 'org.joda:joda-money:1.0.1'
     testCompile "io.micronaut.test:micronaut-test-spock:1.1.2"
 }
 
@@ -49,7 +48,7 @@ mainClassName = "banking.Application"
 test {
     useJUnitPlatform()
 }
-tasks.withType(JavaCompile){
+tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.compilerArgs.add('-parameters')
 }

@@ -12,27 +12,27 @@ import java.util.concurrent.locks.ReentrantLock;
 @Getter
 public class Account {
 
-  private final ReentrantLock lock = new ReentrantLock();
-  private final String accountNumber = UUID.randomUUID().toString();
-  private final CurrencyUnit currencyUnit;
-  @Setter
-  private String accountHolder;
-  @Setter
-  private Money money;
+	private final ReentrantLock lock = new ReentrantLock();
+	private final String accountNumber = UUID.randomUUID().toString();
+	private final CurrencyUnit currencyUnit;
+	@Setter
+	private String accountHolder;
+	@Setter
+	private Money money;
 
-  public Account(final AccountDto accountDto) {
-    this.accountHolder = accountDto.getAccountHolder();
-    this.money = Money.parse(accountDto.getCurrencyAndBalance());
-    this.currencyUnit = money.getCurrencyUnit();
-  }
+	public Account(final AccountDto accountDto) {
+		this.accountHolder = accountDto.getAccountHolder();
+		this.money = Money.parse(accountDto.getCurrencyAndBalance());
+		this.currencyUnit = money.getCurrencyUnit();
+	}
 
-  public void lock() {
-    this.lock.lock();
-  }
+	public void lock() {
+		this.lock.lock();
+	}
 
-  public void unlock() {
-    this.lock.unlock();
-  }
+	public void unlock() {
+		this.lock.unlock();
+	}
 
 
 }
